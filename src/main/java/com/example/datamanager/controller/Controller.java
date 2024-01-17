@@ -11,6 +11,6 @@ public class Controller {
   @GetMapping("/testdata")
   public Response getTestData() {
     return new Response(UUID.randomUUID(), "Test Title", "Test Description", "01-23-2025",
-                    "http://some-link-to-photo", "http://some-link-to-mono");
+        "http://some-link-to-photo", "http://some-link-to-mono");
   }
 }
