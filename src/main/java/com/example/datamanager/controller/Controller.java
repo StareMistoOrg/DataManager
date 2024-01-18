@@ -1,16 +1,24 @@
 package com.example.datamanager.controller;
 
-import com.example.datamanager.model.Response;
-import java.util.UUID;
+import com.example.datamanager.model.OuterResponse;
+import com.example.datamanager.service.DataProvider;
+import com.example.datamanager.utils.ResponseMapper;
+import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Controller {
 
+  private final DataProvider dataProvider;
+  private final ResponseMapper responseMapper;
+
+  public Controller(DataProvider dataProvider, ResponseMapper responseMapper) {
+    this.dataProvider = dataProvider;
+    this.responseMapper = responseMapper;
+  }
   @GetMapping("/testdata")
-  public Response getTestData() {
-    return new Response(UUID.randomUUID(), "Test Title", "Test Description", "01-23-2025",
-        "http://some-link-to-photo", "http://some-link-to-mono");
+  public List<OuterResponse> getTestData() {
+    return responseMapper.convertToOuterResponseList(dataProvider.getAllData());
   }
 }
