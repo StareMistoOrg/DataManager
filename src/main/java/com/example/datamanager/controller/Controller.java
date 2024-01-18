@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Controller {
-
   private final DataProvider dataProvider;
   private final ResponseMapper responseMapper;
 
