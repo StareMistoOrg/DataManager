@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
   private final DataProvider dataProvider;
   private final ResponseMapper responseMapper;
-
   public Controller(DataProvider dataProvider, ResponseMapper responseMapper) {
     this.dataProvider = dataProvider;
     this.responseMapper = responseMapper;
